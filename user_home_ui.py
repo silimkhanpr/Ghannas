@@ -64,7 +64,7 @@ SearchEntry = ttk.Entry(window)
 SearchEntry.place(relx=0.0, rely=0.051, height=22, width=210)
 
 #search button
-def search_click():
+def search_click(event=None):
     search_res = SearchEntry.get()
     query1 = "SELECT Full_name FROM `employee` WHERE (`Full_name` LIKE '%"+search_res+"%') and (NOT Emp_id="
     sql1=query1+eid+")"
@@ -79,6 +79,7 @@ def search_click():
 SearchButton = Button(TFrame1, bg="blue")
 SearchButton.place(relx=0.0, rely=0.051, height=24, width=85)
 SearchButton.configure(text='''Search''', command=search_click)
+window.bind("<Return>", search_click)
 
 #separators
 TSeparator1 = ttk.Separator(TFrame1)
