@@ -20,7 +20,6 @@ label3.place(relx=0.12, rely=0.0, height=35, width=150)
 
 entry1 = ttk.Entry(master)
 entry1.place(relx=0.45, rely=0.15, height=25, width=125)
-entry1.focus()
 
 entry2 = ttk.Entry(master,show="*")
 entry2.place(relx=0.45, rely=0.25, height=25, width=125)
@@ -38,9 +37,9 @@ def clicked(event=None):
     from mysql.connector import Error
     try:
      mydb = mysql.connector.connect(
-     host="localhost",
-     user="root",
-     passwd="",
+     host="172.31.4.90",
+     user="root@laptop",
+     passwd="root",
      database="be_project"
     )
      cursor=mydb.cursor()
@@ -59,7 +58,7 @@ def clicked(event=None):
                  if utype=="standard":
                     print(uname+" Logged in as standard user")
                     label4.configure(text="Login Success!")
-                    user="python user_home_ui.py"
+                    user="python C:\\Users\\nanda\\Desktop\\project\\user_home_ui.py"
                     #print (user+" "+str(eid))
                     os.system(user+" "+str(eid))
                  elif utype=="admin":
