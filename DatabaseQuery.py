@@ -22,7 +22,23 @@ def db_point(a,b):
   uname1=split(uname1,1)
   return uname1,e
 
-def db_insert(val):
-     sql = "insert into message (message_body,sender_id,receiver_group_id,message_type,time) values (%s,%s,%s,%s,%s)"   #query to insert a personal message into db
-     cursor.execute(sql, val)
-     mydb.commit()
+def db_insert(val,a):
+     if a==1:#query to insert a group message into db
+        sql = "insert into message (message_body,sender_id,receiver_group_id,message_type,time) values (%s,%s,%s,%s,%s)"
+        cursor.execute(sql, val)
+        mydb.commit()
+     elif a==2:#query to add new employee into db
+         query = "INSERT INTO employee(Full_name, Designation, Email_id, Dob,ip_address) VALUES(%s, %s, %s, %s, %s)"
+         cursor.execute(query, val)
+         mydb.commit()
+
+def group_message_populate():
+    sql= "SELECT sender_name,message_body FROM group_chat where group_id=3 ORDER BY `time` ASC "
+    cursor.execute(sql)
+    a=[]
+    i=0
+    result = cursor.fetchall()
+    for x in result:
+       a.append(x[0]+':'+x[1])
+       i+=1
+    return a,i
