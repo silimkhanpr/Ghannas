@@ -42,3 +42,8 @@ def group_message_populate():
        a.append(x[0]+':'+x[1])
        i+=1
     return a,i
+def user_login(uname):
+    sql = "select * from users where username='"+uname+"'"
+    cursor.execute(sql)
+    result = cursor.fetchall()
+    return result
