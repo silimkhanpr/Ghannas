@@ -32,7 +32,7 @@ def db_insert(val,a):
          cursor.execute(query, val)
          mydb.commit()
 
-def group_message_populate():
+def group_message_populate():   #function to populate group messages from db
     sql= "SELECT sender_name,message_body FROM group_chat where group_id=3 ORDER BY `time` ASC "
     cursor.execute(sql)
     a=[]
@@ -42,7 +42,7 @@ def group_message_populate():
        a.append(x[0]+':'+x[1])
        i+=1
     return a,i
-def user_login(uname):
+def user_login(uname):   #function to fetch user detail from db
     sql = "select * from users where username='"+uname+"'"
     cursor.execute(sql)
     result = cursor.fetchall()
