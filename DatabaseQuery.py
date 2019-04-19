@@ -1,8 +1,8 @@
 import mysql.connector
-from test import split
+from test import split,server_config
     #Db object
 mydb = mysql.connector.connect(
-        host="192.168.1.35",  #central db
+        host=server_config(1),  #central db
         user="root@laptop",
         passwd="root",
         database="be_project"
