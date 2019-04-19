@@ -1,3 +1,4 @@
+import hashlib
 def server_config(a=0):
     HOST = "192.168.1.33"     #Server configurations
     PORT = 3000
@@ -19,3 +20,9 @@ def split(a,b):
         addr2 = addr2.replace('(', '')
         addr2 = addr2.replace(',', '')
         return addr2
+
+def encrypt_code(p):
+    m = hashlib.md5()
+    m.update(p.encode('utf-8'))
+    p2 = m.hexdigest()
+    return p2

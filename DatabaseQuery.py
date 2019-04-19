@@ -49,7 +49,7 @@ def user_login(uname):   #function to fetch user detail from db
     return result
 
 
-#query for notices
+# query for notices
 def notice(search):
     if search!="null":            #Search a notice based on keyword
         query1 = "SELECT notice_body,date_created FROM `notices` WHERE (`notice_body` LIKE '%" + search + "%') ORDER BY " \
@@ -59,3 +59,21 @@ def notice(search):
     cursor.execute(query1)
     result = cursor.fetchall()
     return result
+
+
+# query to change password
+def password_reset(p, t):
+     sql = "UPDATE users SET password ='" + p + "'" + "WHERE Emp_iD ='" + t + "'"
+     cursor.execute(sql)
+     mydb.commit()
+
+# query to get password of specific user from db
+def get_password(t):
+    sql = "select password from users where Emp_id='" + t + "'"
+    cursor.execute(sql)
+    result = cursor.fetchall()
+    for x in result:
+        pass1 = x[0]
+    return pass1
+
+
