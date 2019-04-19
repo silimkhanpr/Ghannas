@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2019 at 06:16 PM
+-- Generation Time: Apr 19, 2019 at 04:38 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -198,7 +198,8 @@ CREATE TABLE `notices` (
 --
 
 INSERT INTO `notices` (`Notice_id`, `leader_id`, `notice_body`, `date_created`) VALUES
-(1, 2, 'Review on 22nd March', '2019-03-19');
+(1, 2, 'Review on 22nd March', '2019-03-19'),
+(2, 2, 'Front end should be done by end of March.', '2019-03-08');
 
 -- --------------------------------------------------------
 
@@ -381,7 +382,7 @@ ALTER TABLE `employee`
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
-  MODIFY `Message_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `Message_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `message_group`
@@ -393,7 +394,7 @@ ALTER TABLE `message_group`
 -- AUTO_INCREMENT for table `notices`
 --
 ALTER TABLE `notices`
-  MODIFY `Notice_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Notice_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `teams`
