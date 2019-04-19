@@ -1,5 +1,5 @@
 import mysql.connector
-from test import split,server_config
+from test import split,server_config,encrypt_code
     #Db object
 mydb = mysql.connector.connect(
         host=server_config(1),  #central db
@@ -8,7 +8,9 @@ mydb = mysql.connector.connect(
         database="be_project"
     )
 cursor=mydb.cursor()
-def db_point(a,b):
+
+
+def db_point(a, b):
   e=0
   uname1=""
   if b==1:
@@ -22,15 +24,26 @@ def db_point(a,b):
   uname1=split(uname1,1)
   return uname1,e
 
-def db_insert(val,a):
-     if a==1:#query to insert a group message into db
+
+def db_insert(val, a):
+
+     if a == 1:  # query to insert a group message into db
         sql = "insert into message (message_body,sender_id,receiver_group_id,message_type,time) values (%s,%s,%s,%s,%s)"
         cursor.execute(sql, val)
         mydb.commit()
-     elif a==2:#query to add new employee into db
+     elif a == 2:  # query to add new employee into db
          query = "INSERT INTO employee(Full_name, Designation, Email_id, Dob,ip_address) VALUES(%s, %s, %s, %s, %s)"
          cursor.execute(query, val)
          mydb.commit()
+         eid=cursor.lastrowid
+         uname = split(val[0])
+         pass1 = encrypt_code("password")
+         print(uname+"\t"+pass1)
+         query = "INSERT INTO `users`(`Emp_id`, `username`, `password`, `user_type`)  VALUES(%s, %s ,%s, %s) "
+         eval=(eid,uname,pass1,"standard")
+         cursor.execute(query,eval)
+         mydb.commit()
+
 
 def group_message_populate():   #function to populate group messages from db
     sql= "SELECT sender_name,message_body FROM group_chat where group_id=3 ORDER BY `time` ASC "
@@ -42,6 +55,8 @@ def group_message_populate():   #function to populate group messages from db
        a.append(x[0]+':'+x[1])
        i+=1
     return a,i
+
+
 def user_login(uname):   #function to fetch user detail from db
     sql = "select * from users where username='"+uname+"'"
     cursor.execute(sql)

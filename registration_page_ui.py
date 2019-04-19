@@ -57,26 +57,27 @@ TSeparator4 = ttk.Separator(master)
 TSeparator4.place(relx=0.367, rely=0.244, relheight=0.267)
 TSeparator4.configure(orient="vertical")
 
+
 def clicked(event=None):
     label6.configure(text="")
     fullname = entry1.get()
     designation = entry2.get()
     emailid = entry3.get()
     dob = entry4.get()
-    ip=entry5.get()
+    ip = entry5.get()
     if entry1.get()and entry2.get()and entry3.get()and entry4.get() and entry5.get():
-
-            values = (fullname, designation, emailid, dob,ip)
-            db_insert(values,2)
-            print ("Record inserted successfully!")
-            label6.configure(text="Registration Success!")
-            entry1.delete(0, 'end')
-            entry2.delete(0, 'end')
-            entry3.delete(0, 'end')
-            entry4.delete(0, 'end')
-            entry5.delete(0, 'end')
+        values = (fullname, designation, emailid, dob, ip)
+        db_insert(values, 2)
+        print("Record inserted successfully!")
+        label6.configure(text="Registration Success!")
+        entry1.delete(0, 'end')
+        entry2.delete(0, 'end')
+        entry3.delete(0, 'end')
+        entry4.delete(0, 'end')
+        entry5.delete(0, 'end')
 def close():
     master.destroy()
+
 
 button1 = Button (master, text="Submit", command=clicked, bg="blue")
 button1.place(relx=0.267, rely=0.633, height=35, width=136)
@@ -86,4 +87,4 @@ button2.place(relx=0.507, rely=0.633, height=35, width=86)
 
 master.bind("<Return>", clicked)
 
-mainloop( )
+mainloop()
