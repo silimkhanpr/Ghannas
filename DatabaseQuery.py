@@ -36,9 +36,10 @@ def db_insert(val, a):
          cursor.execute(query, val)
          mydb.commit()
          eid=cursor.lastrowid
-         uname = split(val[0])
-         pass1 = encrypt_code("password")
+         uname = split(val[0])   # function call to get username
+         pass1 = encrypt_code("password")    # function call to encrypt password
          print(uname+"\t"+pass1)
+         # create user in user table
          query = "INSERT INTO `users`(`Emp_id`, `username`, `password`, `user_type`)  VALUES(%s, %s ,%s, %s) "
          eval=(eid,uname,pass1,"standard")
          cursor.execute(query,eval)
