@@ -2,7 +2,7 @@ import mysql.connector
 from test import split
     #Db object
 mydb = mysql.connector.connect(
-        host="192.168.1.36",  #central db
+        host="192.168.1.35",  #central db
         user="root@laptop",
         passwd="root",
         database="be_project"
@@ -45,5 +45,17 @@ def group_message_populate():   #function to populate group messages from db
 def user_login(uname):   #function to fetch user detail from db
     sql = "select * from users where username='"+uname+"'"
     cursor.execute(sql)
+    result = cursor.fetchall()
+    return result
+
+
+#query for notices
+def notice(search):
+    if search!="null":            #Search a notice based on keyword
+        query1 = "SELECT notice_body,date_created FROM `notices` WHERE (`notice_body` LIKE '%" + search + "%') ORDER BY " \
+                                                                                             "`date_created` ASC "
+    else:              #select all notices from db
+        query1 = "SELECT notice_body,date_created FROM `notices`ORDER BY `date_created` ASC "
+    cursor.execute(query1)
     result = cursor.fetchall()
     return result
