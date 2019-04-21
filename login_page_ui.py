@@ -32,27 +32,27 @@ def clicked(event=None):
     password = entry2.get()
     m = hashlib.md5()
     m.update(password.encode('utf-8'))
-    pass1=m.hexdigest()
-    uname=str(username)
-    result=user_login(uname)
-    if (result):
-         for x in result:
-             pass2=x[2]
-             utype=x[3]
-             eid=x[0]
-             if (pass1==pass2):
-                 if utype=="standard":
+    pass1 = m.hexdigest()
+    uname = str(username)
+    result = user_login(uname)
+    if result:
+        for x in result:
+           pass2 = x[2]
+           utype = x[3]
+           eid = x[0]
+           if pass1==pass2:
+                 if utype == "standard":
                     print(uname+" Logged in as standard user")
                     label4.configure(text="Login Success!")
-                    user="python C:\\Users\\nanda\\Desktop\\project\\user_home_ui.py"
-                    #print (user+" "+str(eid))
+                    user="python user_home_ui.py"
+                    # print (user+" "+str(eid))
                     os.system(user+" "+str(eid))
-                 elif utype=="admin":
+                 elif utype == "admin":
                     print(uname+" Logged in as admin")
                     user="python admin_home_ui.py"
                     os.system(user+" "+str(eid))
                     label4.configure(text="Login Success!")
-             else:
+           else:
                  messagebox.showerror('Login Failure', 'Invalid Password')
 
     else:
