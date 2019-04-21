@@ -1,7 +1,7 @@
 import tkinter
 from tkinter import ttk
 from tkinter import *
-from DatabaseQuery import notice
+from DatabaseQuery import db_point
 
 window = Tk()
 window.title("Notices")
@@ -30,7 +30,9 @@ SearchEntry.focus()
 
 def search_click(event=None):
     search = SearchEntry.get()
-    records = notice(search)
+    query1 = "SELECT notice_body,date_created FROM `notices` WHERE (`notice_body` LIKE '%" + search + "%') ORDER " \
+               "BY `date_created` ASC "
+    records = db_point(query1)
     if records:
       for row in records:
         print(row[0]+":\t"+str(x[1]))
@@ -42,8 +44,8 @@ SearchButton = Button(window, bg="blue")
 SearchButton.place(relx=0.662, rely=0.930, height=35, width=86)
 SearchButton.configure(text="Search", command=search_click)
 window.bind("<Return>", search_click)
-t = "null"
-result = notice(t)
+query1 = "SELECT notice_body,date_created FROM `notices`ORDER BY `date_created` ASC "
+result = db_point(query1)
 for x in result:
     notice_list.insert(tkinter.END, x[0]+":\t"+str(x[1]))
     print(x[0]+":\t"+str(x[1]))

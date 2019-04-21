@@ -1,8 +1,8 @@
 from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
-import hashlib
-from DatabaseQuery import user_login
+from DatabaseQuery import db_point
+from test import encrypt_code
 import os
 
 master =Tk()
@@ -30,17 +30,16 @@ label4.place(relx=0.35, rely=0.45, height=30, width=120)
 def clicked(event=None):
     username = entry1.get()
     password = entry2.get()
-    m = hashlib.md5()
-    m.update(password.encode('utf-8'))
-    pass1 = m.hexdigest()
+    pass1 = encrypt_code(password)
     uname = str(username)
-    result = user_login(uname)
+    sql = "select * from users where username='"+uname+"'"
+    result = db_point(sql)
     if result:
         for x in result:
            pass2 = x[2]
            utype = x[3]
            eid = x[0]
-           if pass1==pass2:
+           if pass1 == pass2:
                  if utype == "standard":
                     print(uname+" Logged in as standard user")
                     label4.configure(text="Login Success!")
@@ -49,7 +48,7 @@ def clicked(event=None):
                     os.system(user+" "+str(eid))
                  elif utype == "admin":
                     print(uname+" Logged in as admin")
-                    user="python admin_home_ui.py"
+                    user = "python admin_home_ui.py"
                     os.system(user+" "+str(eid))
                     label4.configure(text="Login Success!")
            else:
@@ -60,11 +59,12 @@ def clicked(event=None):
     entry1.delete(0, 'end')
     entry2.delete(0, 'end')
 
+
 button1 = Button(master, text="Login", command=clicked, bg="blue")
 button1.place(relx=0.48, rely=0.35, height=30, width=100)
 
 master.bind("<Return>", clicked)
 
-mainloop( )
+mainloop()
 
 

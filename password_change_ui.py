@@ -2,13 +2,13 @@ from tkinter import *
 from tkinter import ttk
 import sys
 from test import encrypt_code
-from DatabaseQuery import get_password,password_reset
+from DatabaseQuery import get_password, password_reset
 window = Tk()
 window.title("Change password")
 window.geometry('350x350')
 
 # t = sys.argv[1]
-t="3"
+t = "3"
 pass1 = get_password(t)
 
 label1 = Label(window, text="Current*:", fg="red")

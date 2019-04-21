@@ -21,8 +21,7 @@ def emp_ip(a):
     u = ""
     # query to get employee name based on ip address
     query = "select Emp_id,Full_name from employee where ip_address=" + a
-    cursor.execute(query)
-    result = cursor.fetchall()
+    result = db_point(query)
     if result:
       for x in result:
        u = x[1]
@@ -53,44 +52,22 @@ def db_insert(val, a):
 
 
 # function to populate messages from db
-def message_populate(a, b):
-    if a != "null" and b != "null":            # code to populate personal chat from db
+def message_populate(j, b="null"):
+    if j != "null" and b != "null":            # code to populate personal chat from db
         global query1
         query1 = "SELECT `sender_name`, `message_body`, `time` FROM `personal_chat` where (" \
-                       "`sender_id`='" + str(a) + "' and `receiver_id`='" + str(b) + "') OR (`sender_id`='" + str(b) \
-                       + "' and `receiver_id`='" + str(a) + "') ORDER BY `time` ASC "
+                       "`sender_id`='" + str(j) + "' and `receiver_id`='" + str(b) + "') OR (`sender_id`='" + str(b) \
+                       + "' and `receiver_id`='" + str(j) + "') ORDER BY `time` ASC "
     else:              # select all notices from db
 
-        query1 = "SELECT sender_name,message_body FROM group_chat where group_id=3 ORDER BY `time` ASC "
+        query1 = "SELECT sender_name,message_body FROM group_chat where group_id='"+str(j)+"' ORDER BY `time` ASC "
     a = []
     i = 0
-    cursor.execute(query1)
-    result = cursor.fetchall()
+    result = db_point(query1)
     for x in result:
         a.append(x[0] + ':' + x[1])
         i += 1
     return a, i
-
-
-def user_login(u):   # function to fetch user detail from db
-    sql = "select * from users where username='"+u+"'"
-    cursor.execute(sql)
-    result = cursor.fetchall()
-    return result
-
-
-# query for notices
-def notice(search):
-    if search != "null":            # Search a notice based on keyword
-        global query1
-        query1 = "SELECT notice_body,date_created FROM `notices` WHERE (`notice_body` LIKE '%" + search + "%') ORDER " \
-                 "BY `date_created` ASC "
-
-    else:              # select all notices from db
-        query1 = "SELECT notice_body,date_created FROM `notices`ORDER BY `date_created` ASC "
-    cursor.execute(query1)
-    result = cursor.fetchall()
-    return result
 
 
 # query to change password
@@ -103,8 +80,7 @@ def password_reset(p, t):
 # query to get password of specific user from db
 def get_password(t):
     sql = "select password from users where Emp_id='" + t + "'"
-    cursor.execute(sql)
-    result = cursor.fetchall()
+    result = db_point(sql)
     for x in result:
         pass1 = x[0]
     return pass1

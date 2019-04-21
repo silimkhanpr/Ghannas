@@ -2,16 +2,17 @@
 from socket import AF_INET, socket, SOCK_STREAM
 from threading import Thread
 import tkinter
-import mysql.connector
 from test import server_config
-from DatabaseQuery import *
+from DatabaseQuery import message_populate
+
+
 def receive():
     """Handles receiving of messages."""
     while True:
         try:
             msg = client_socket.recv(BUFSIZ).decode("utf8")
             msg_list.insert(tkinter.END, msg)
-            #print (msg+"end")
+            # print (msg+"end")
             msg_list.see(tkinter.END)
         except OSError:
             break
@@ -23,7 +24,7 @@ def send(event=None):  # event is passed by binders.
     if msg == "quit":
         client_socket.send(msg.encode("utf8"))
         client_socket.close()
-        #top.quit()
+        # top.quit()
     else:
         client_socket.send(msg.encode("utf8"))
 
@@ -47,16 +48,16 @@ entry_field.bind("<Return>", send)
 entry_field.pack()
 send_button = tkinter.Button(top, text="Send", command=send)
 send_button.pack()
-a,i=group_message_populate()                       #code to populate previous messages
-j=0
-while j<i:
+t = 3
+a, i = message_populate(str(t))                      # code to populate previous messages
+j = 0
+while j < i:
     msg_list.insert(tkinter.END, a[j])
-    j+=1
+    j += 1
 
 
-
-#Socket part
-HOST,PORT = server_config()
+# Socket part
+HOST, PORT = server_config()
 BUFSIZ = 1024
 ADDR = (HOST, PORT)
 
