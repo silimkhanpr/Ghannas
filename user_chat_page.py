@@ -8,8 +8,8 @@ import tkinter
 import os
 
 
-# eid = sys.argv[1]
-eid = 2
+#eid = sys.argv[1]
+eid = 4
 eid = str(eid)
 window = Tk()
 window.title("User Home")
@@ -121,7 +121,7 @@ Label1.config(font=("Times New Roman", 20))
 # code when a contact is clicked
 def chat_click(receiverid, fullname):
     print("sender id is " + eid)
-    print("receiver is is " + str(receiverid))
+    print("receiver id is " + str(receiverid))
     msg_list.delete(0, tkinter.END)
     # ContactButton.config(state="disabled")
 
@@ -143,14 +143,15 @@ def chat_click(receiverid, fullname):
     LabelUser.place(relx=0.282, rely=0.073, height=60, width=220)
     LabelUser.config(font=("Times New Roman", 20))
 
+    def audio():
+        os.system("python audio_call_page.py"+" "+str(receiverid))
+
     videocall = Button(window, text="Video Call")
     videocall.place(relx=0.797, rely=0.1, height=35, width=96)
-    audiocall = Button(window, text="Audio Call")
+    audiocall = Button(window, text="Audio Call", command=audio)
     audiocall.place(relx=0.687, rely=0.1, height=35, width=96)
     filetransfer = Button(window, text="File Transfer")
     filetransfer.place(relx=0.577, rely=0.1, height=35, width=96)
-
-    # when the back button is pressed
 
 
 # list of contacts dynamically retrieved from database
