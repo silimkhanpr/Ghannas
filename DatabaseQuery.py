@@ -61,10 +61,10 @@ def message_populate(j, b="null"):
         global query1
         query1 = "SELECT `sender_name`, `message_body` FROM `personal_chat` where (" \
                        "`sender_id`='" + str(j) + "' and `receiver_id`='" + str(b) + "') OR (`sender_id`='" + str(b) \
-                       + "' and `receiver_id`='" + str(j) + "') ORDER BY `time` ASC "
+                       + "' and `receiver_id`='" + str(j) + "') ORDER BY `time` DESC "
     else:              # select all notices from db
 
-        query1 = "SELECT sender_name,message_body FROM group_chat where group_id='"+str(j)+"' ORDER BY `time` ASC "
+        query1 = "SELECT sender_name,message_body FROM group_chat where group_id='"+str(j)+"' ORDER BY `time` DESC "
     a = []
     i = 0
     print(j+":"+b)
@@ -91,5 +91,10 @@ def get_password(t):
     return pass1
 
 
+# query to update ip address of user
+def update_ip(e, t):
+    sql = "UPDATE employee SET ip_address ='" + t + "'" + "WHERE Emp_iD ='" + str(e) + "'"
+    cursor.execute(sql)
+    mydb.commit()
 
 
