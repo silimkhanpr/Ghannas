@@ -28,8 +28,8 @@ label4 = Label(master, fg="green")
 label4.place(relx=0.35, rely=0.45, height=30, width=120)
 
 def clicked(event=None):
-    username = entry1.get()
-    password = entry2.get()
+    username = "pranavsilimkhan"#entry1.get()
+    password = "password"#entry2.get()
     pass1 = encrypt_code(password)
     uname = str(username)
     sql = "select * from users where username='"+uname+"'"
@@ -43,14 +43,16 @@ def clicked(event=None):
                  if utype == "standard":
                     print(uname+" Logged in as standard user")
                     label4.configure(text="Login Success!")
-                    user="python user_home_ui.py"
+                    user="python user_chat_page.py"
                     # print (user+" "+str(eid))
                     os.system(user+" "+str(eid))
                  elif utype == "admin":
+
                     print(uname+" Logged in as admin")
-                    user = "python admin_home_ui.py"
+                    user = "python admin_chat_page.py"
                     os.system(user+" "+str(eid))
                     label4.configure(text="Login Success!")
+
            else:
                  messagebox.showerror('Login Failure', 'Invalid Password')
 
