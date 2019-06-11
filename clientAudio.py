@@ -2,10 +2,10 @@ from socket import socket, AF_INET, SOCK_STREAM
 from threading import Thread
 import pyaudio
 from array import array
+from test import server_config
 
+HOST, PORT = server_config()#input("Enter Server IP\n")
 
-HOST = "172.31.4.65"
-PORT = 4000
 BufferSize = 4096
 
 FORMAT=pyaudio.paInt16
@@ -18,7 +18,7 @@ def SendAudio():
         data = stream.read(CHUNK)
         dataChunk = array('h', data)
         vol = max(dataChunk)
-        if(vol > 1500):
+        if(vol > 1200):
             print("Recording Sound...")
         else:
             print("Silence..")

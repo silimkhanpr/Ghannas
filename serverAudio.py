@@ -1,17 +1,8 @@
 from socket import socket, AF_INET, SOCK_STREAM
 from threading import Thread
-#from DatabaseQuery import db_point
+from test import server_config
 
-
-#connection = mysql.connector.connect(host='localhost',
-                                 #database='be_project',
-                                 #user='root',
-                                 #password='')
-
-#query= "Select port from `audio_avai_port` where port=3003"
-#cursor = connection
-HOST = input("Enter Host IP\n")
-PORT = 4000
+HOST, PORT = server_config()
 BufferSize = 4096
 addresses = {}
 

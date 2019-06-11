@@ -6,8 +6,14 @@ def server_config(a=0):
     ip = socket.gethostbyname(socket.gethostname())
     host = str(ip)    # Server configurations
     port = 3000
+    video_port = 4000
+    TCP_Port=9001
     if a == 1:
      return host
+    elif a == 2:
+        return host, port, video_port
+    elif a == 3:
+        return host, TCP_Port
     else:
      return host, port
 
