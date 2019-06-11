@@ -5,12 +5,12 @@ from threading import Thread
 from test import split, server_config
 from DatabaseQuery import db_point, message_populate
 import tkinter
+from tkinter.filedialog import askopenfilename
 import os
-
+#import subprocess
 
 #eid = sys.argv[1]
-eid = 4
-eid = str(eid)
+eid = "4"
 window = Tk()
 window.title("User Home")
 window.geometry('800x500')
@@ -142,15 +142,19 @@ def chat_click(receiverid, fullname):
     LabelUser = Label(window, text=fullname, fg="red", bg="yellow")
     LabelUser.place(relx=0.282, rely=0.073, height=60, width=220)
     LabelUser.config(font=("Times New Roman", 20))
-
     def audio():
         os.system("python audio_call_page.py"+" "+str(receiverid))
+        #subprocess.run("python audio_call_pasge.py & python clientAudio.py",shell=True)
+
+    def file():
+        filename = askopenfilename()
+        print(filename)
 
     videocall = Button(window, text="Video Call")
     videocall.place(relx=0.797, rely=0.1, height=35, width=96)
     audiocall = Button(window, text="Audio Call", command=audio)
     audiocall.place(relx=0.687, rely=0.1, height=35, width=96)
-    filetransfer = Button(window, text="File Transfer")
+    filetransfer = Button(window, text="File Transfer", command=file)
     filetransfer.place(relx=0.577, rely=0.1, height=35, width=96)
 
 
