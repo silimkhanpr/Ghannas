@@ -1,2 +1,0 @@
-# Ghannas
-Final year project
