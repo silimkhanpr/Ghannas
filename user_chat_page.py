@@ -60,7 +60,8 @@ uname = uname.capitalize()
 
 
 def groupchat():
-    os.system('python clientcomb.py')
+    flag = 1
+    #os.system('python clientcomb.py')
 
 
 TButton2 = ttk.Button(window, text="Group chat", command=groupchat)
