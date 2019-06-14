@@ -3,12 +3,12 @@ import tkinter as tk
 from tkinter import ttk
 import sys
 import os
-#from DatabaseQuery import db_point
-#from socket import socket, AF_INET, SOCK_STREAM
-#from threading import Thread
-#import pyaudio
+from DatabaseQuery import db_point
+from socket import socket, AF_INET, SOCK_STREAM
+from threading import Thread
+import pyaudio
 from array import array
-#from test import server_config
+from test import server_config
 
 master = Tk()
 master.geometry("300x300")
