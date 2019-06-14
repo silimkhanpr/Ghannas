@@ -33,7 +33,7 @@ def emp_ip(a):
 # function to insert values in db
 def db_insert(val, a):
      if a == 1:  # query to insert a group message into db
-        sql = "insert into message (message_body,sender_id,receiver_group_id,message_type,time) values (%s,%s,%s,%s,%s)"
+        sql = "insert into message (message_body,sender_id,receiver_id,message_type,time) values (%s,%s,%s,%s,%s)"
         cursor.execute(sql, val)
         mydb.commit()
      elif a == 2:  # query to add new employee into db
@@ -62,15 +62,15 @@ def message_populate(j, b="null"):
         query1 = "SELECT `sender_name`, `message_body` FROM `personal_chat` where (" \
                        "`sender_id`='" + str(j) + "' and `receiver_id`='" + str(b) + "') OR (`sender_id`='" + str(b) \
                        + "' and `receiver_id`='" + str(j) + "') ORDER BY `time` DESC "
-    else:              # select all notices from db
 
+    else:              # select all notices from db
         query1 = "SELECT sender_name,message_body FROM group_chat where group_id='"+str(j)+"' ORDER BY `time` DESC "
     a = []
     i = 0
-    print(j+":"+b)
+    print(j+" : "+b)
     result = db_point(query1)
     for x in result:
-        a.append(x[0] + ':' + x[1])
+        a.append(x[0] + ' : ' + x[1])
         i += 1
     return a, i
 
