@@ -16,19 +16,26 @@ def db_point(a):
     return result
 
 
-def emp_ip(a):
-    e = 0
-    u = ""
-    # query to get employee name based on ip address
-    query = "select Emp_id,Full_name from employee where ip_address=" + a
-    result = db_point(query)
-    if result:
-      for x in result:
-       u = x[1]
-       e = x[0]
-    u = split(u, 1)
-    return u, e
-
+def emp_ip(a, i=0):
+    if i == 1:
+        ip = 0
+        query="select ip_address from employee where emp_id=" + a
+        result = db_point(query)
+        for x in result:
+            ip = x[0]
+        return ip
+    else:
+        e = 0
+        u = ""
+        # query to get employee name based on ip address
+        query = "select Emp_id,Full_name from employee where ip_address=" + a
+        result = db_point(query)
+        if result:
+            for x in result:
+                u = x[1]
+                e = x[0]
+        u = split(u, 1)
+        return u, e
 
 # function to insert values in db
 def db_insert(val, a):

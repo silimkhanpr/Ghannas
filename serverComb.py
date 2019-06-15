@@ -3,7 +3,7 @@ from threading import Thread
 import datetime
 from DatabaseQuery import *
 from socket import AF_INET, SOCK_STREAM, socket
-from test import server_config,split
+from test import server_config, split
 
 HOST, PORT = server_config() 
 uname = ""
@@ -11,18 +11,17 @@ addresses = {}
 clients = {}
 eid = {}
 rec_Id = ""
-addr2={}
+
 
 def Connections():
     while True:
         client, addr = server.accept()
         addr1 = format(addr)
-        addr2[client] = split(addr,2)
-        print(addr2)
+        addr1 = split(addr1, 2)
+        print(addr1)
         global uname
-        uname, eid[addr2] = emp_ip(addr2)
+        uname, eid[addr1] = emp_ip(addr1)
         print(uname)
-       # client.send(("Welcome to Chat Room {}.".format(uname)).encode("utf-8"))
         addresses[client] = addr1
         clients[client] = uname
         Thread(target=ClientConnection, args=(client, )).start()
@@ -51,8 +50,10 @@ def ClientConnection(client):
 
 def Broadcast(add, msg, name=""):
     for sockets in clients:
-        print(sockets)
-        print(addr2[sockets])
+        #print(sockets)
+        #print(addr2[sockets])
+        receiver_ip = emp_ip(rec_Id, 1)
+        print(receiver_ip)
         sockets.send(name.encode("utf-8") + msg)
     x = datetime.datetime.now()
     ed = eid[add]

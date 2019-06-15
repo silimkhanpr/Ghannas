@@ -1,3 +1,4 @@
+from importlib import reload
 from tkinter import *
 from tkinter import ttk
 from socket import AF_INET, socket, SOCK_STREAM
@@ -6,6 +7,7 @@ from test import split, server_config
 from DatabaseQuery import db_point, message_populate
 import tkinter
 import os
+
 
 eid = "3"
 #eid = sys.argv[1]
@@ -24,6 +26,31 @@ my_msg.set("")
 ChatEntry = ttk.Entry(window)
 
 
+def receive():
+    """Handles receiving of messages."""
+    while True:
+        try:
+            msg = client_socket.recv(BUFSIZ).decode("utf8")
+            msg_list.insert(tkinter.END, msg)
+            print(msg)
+            msg_list.see(tkinter.END)
+        except OSError:
+            break
+
+
+def send(event=None):  # event is passed by binders.
+    # client_socket.send(eid.encode("utf8"))
+    # client_socket.send(str(receiverid).encode("utf8"))
+    ms = ChatEntry.get()
+    msg = str(receiver_Id) + ", " + ms
+    ChatEntry.delete(0, 'end')
+    my_msg.set("")  # Clears input field.
+    if msg == "quit":
+        client_socket.send(msg.encode("utf8"))
+        client_socket.close()
+        # top.quit()
+    else:
+        client_socket.send(msg.encode("utf8"))
 
 
 query = "select Full_name from employee where Emp_id='" + eid + "'"
@@ -99,41 +126,12 @@ Label1.config(font=("Times New Roman", 20))
 
 # code when a contact is clicked
 def chat_click(receiverid, fullname):
-    client_socket = socket(AF_INET, SOCK_STREAM)
+
 
     global receiver_Id
     receiver_Id = receiverid
 
 
-    client_socket.connect(ADDR)
-
-    def receive():
-        """Handles receiving of messages."""
-        while True:
-            try:
-                msg = client_socket.recv(BUFSIZ).decode("utf8")
-                msg_list.insert(tkinter.END, msg)
-                print(msg)
-                msg_list.see(tkinter.END)
-            except OSError:
-                break
-
-    def send(event=None):  # event is passed by binders.
-        # client_socket.send(eid.encode("utf8"))
-        # client_socket.send(str(receiverid).encode("utf8"))
-        ms = ChatEntry.get()
-        msg = str(receiver_Id) + ", " + ms
-        ChatEntry.delete(0, 'end')
-        my_msg.set("")  # Clears input field.
-        if msg == "quit":
-            client_socket.send(msg.encode("utf8"))
-            client_socket.close()
-            # top.quit()
-        else:
-            client_socket.send(msg.encode("utf8"))
-
-    ReceiveThread = Thread(target=receive).start()
-    SendThread = Thread(target=send).start()
 
     print("sender id is " + eid)
     print("receiver id is " + str(receiverid))
@@ -165,12 +163,10 @@ def chat_click(receiverid, fullname):
     filetransfer = Button(window, text="File Transfer")
     filetransfer.place(relx=0.577, rely=0.1, height=35, width=96)
 
-    # when the back button is pressed
-
-
 # list of contacts dynamically retrieved from database
 
-if (records):
+
+if records:
     for row in records:
         ContactButton = ttk.Button(window)
         ContactButton.config(text="%s" % row[1],
@@ -199,6 +195,10 @@ HOST, PORT = server_config()
 BUFSIZ = 1024
 ADDR = (HOST, PORT)
 
+client_socket = socket(AF_INET, SOCK_STREAM)
+client_socket.connect(ADDR)
 
+ReceiveThread = Thread(target=receive).start()
+SendThread = Thread(target=send).start()
 
 window.mainloop()
