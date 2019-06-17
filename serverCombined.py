@@ -2,10 +2,10 @@ from threading import Thread
 import datetime
 from DatabaseQuery import *
 from socket import AF_INET, SOCK_STREAM, socket
-from test import server_config,split
+from test import server_config, split
 
 #HOST = input("Enter Host IP\n")
-HOST = "172.31.4.72"
+HOST = server_config(1)
 PORT = 3000 
 uname = ""
 addresses = {}
@@ -14,7 +14,7 @@ eid = {}
 
 
 #HOSTA = input("Enter Host IP\n")
-HOSTA = "172.31.4.72"
+HOSTA = server_config(1)
 PORTA = 4000
 BufferSize1 = 4096
 addressesa = {}
