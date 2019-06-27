@@ -61,7 +61,7 @@ Button1.place(relx=0.33, rely=0.8, height=40, width=100)
 Button1.configure(text="End Call", command=end_call)
 
 HOST = server_config(1)
-PORT = 4000
+PORT = server_config(3)
 BufferSize = 4096
 
 FORMAT=pyaudio.paInt16

@@ -4,6 +4,7 @@ from tkinter import messagebox
 import mysql.connector
 from mysql.connector import Error
 from mysql.connector import errorcode
+from DatabaseQuery import insert
 
 window = Tk()
 window.title("Add Notices")
@@ -21,28 +22,13 @@ def clicked(event=None):
     label1.configure(text="")
     notice = entry1.get()
     if entry1.get():
-        try:
-            connection = mysql.connector.connect(host='192.168.43.190',
-                                     database='be_project',
-                                     user='root@laptop',
-                                     password='root')
             query =  "INSERT INTO notices(leader_id, notice_body) VALUES(%s, %s)"
             values = ("2", notice)
-            cursor = connection.cursor()
-            result  = cursor.execute(query, values)
-            connection.commit()
+            insert(query, values)
             print ("Record inserted successfully!")
             label1.configure(text="Notice Successfully entered!")
             entry1.delete(0, 'end')
-        except mysql.connector.Error as error :
-            connection.rollback() #rollback if any exception occured
-            print("Failed inserting record into database {}".format(error))
-        finally:
-            #closing database connection.
-            if(connection.is_connected()):
-                cursor.close()
-                connection.close()
-                print("MySQL connection is closed")
+
     else:
         messagebox.showerror('Failure!', 'Enter some text')
         label1.configure(text="(Please enter the notice below:)")

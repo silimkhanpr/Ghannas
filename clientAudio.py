@@ -4,8 +4,8 @@ import pyaudio
 from array import array
 from test import server_config
 
-HOST, PORT = server_config()#input("Enter Server IP\n")
-
+HOST = server_config(1)
+PORT = server_config(3)
 BufferSize = 4096
 
 FORMAT=pyaudio.paInt16

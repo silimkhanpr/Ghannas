@@ -191,7 +191,9 @@ logoutbutton.place(relx=0.907, rely=0.0, height=35, width=86)
 changepw = Button(window, text="Change Password", bg="green", command=changepw)
 changepw.place(relx=0.777, rely=0.0, height=35, width=106)
 
-HOST, PORT = server_config()
+HOST = server_config(1)
+PORT = server_config(4)
+
 BUFSIZ = 1024
 ADDR = (HOST, PORT)
 

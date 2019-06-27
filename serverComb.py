@@ -5,7 +5,8 @@ from DatabaseQuery import *
 from socket import AF_INET, SOCK_STREAM, socket
 from test import server_config, split
 
-HOST, PORT = server_config() 
+HOST = server_config(1)
+PORT = server_config(4)
 uname = ""
 addresses = {}
 clients = {}

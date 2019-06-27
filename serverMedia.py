@@ -2,7 +2,9 @@ from socket import socket, AF_INET, SOCK_STREAM
 from threading import Thread
 import struct
 from test import server_config
-HOST, PORT_VIDEO, PORT_AUDIO = server_config(2)
+HOST = server_config(1)
+PORT_VIDEO = server_config(2)
+PORT_AUDIO = server_config(3)
 lnF = 640*480*3
 CHUNK = 1024
 BufferSize = 4096

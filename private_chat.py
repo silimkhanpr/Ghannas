@@ -3,6 +3,7 @@ from socket import AF_INET, socket, SOCK_STREAM
 from threading import Thread
 import tkinter
 import mysql.connector
+from test import server_config
 import datetime
 from mysql.connector import Error
 import sys
@@ -79,8 +80,8 @@ for x in result:
 
 #Socket part
 #HOST = input('Enter host: ') # Enter host of the server without inverted commas
-HOST='192.168.1.35'
-PORT = 3000
+HOST = server_config(1)
+PORT = server_config(4)
 BUFSIZ = 1024
 ADDR = (HOST, PORT)
 

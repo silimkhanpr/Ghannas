@@ -2,7 +2,8 @@ from socket import socket, AF_INET, SOCK_STREAM
 from threading import Thread
 from test import server_config
 
-HOST, PORT = server_config()
+HOST = server_config(1)
+PORT = server_config(3)
 BufferSize = 4096
 addresses = {}
 

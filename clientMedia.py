@@ -12,14 +12,15 @@ import cv2
 from test import server_config
 
 
-HOST, PORT_VIDEO, PORT_AUDIO = server_config(2)#input("Enter Server IP\n")
-
+HOST = server_config(1)
+PORT_VIDEO = server_config(2)
+PORT_AUDIO = server_config(3)
 BufferSize = 4096
-CHUNK=1024
+CHUNK = 1024
 lnF = 640*480*3
-FORMAT=pyaudio.paInt16
-CHANNELS=2
-RATE=44100
+FORMAT = pyaudio.paInt16
+CHANNELS = 2
+RATE = 44100
 
 def SendAudio():
     while True:

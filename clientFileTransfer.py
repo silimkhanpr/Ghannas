@@ -3,7 +3,8 @@
 from test import server_config
 import socket
 
-TCP_IP ,TCP_PORT = server_config(3)
+TCP_IP = server_config(1)
+TCP_PORT = server_config(5)
 BUFFER_SIZE = 1024
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

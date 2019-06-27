@@ -103,3 +103,7 @@ def update_ip(e, t):
     sql = "UPDATE employee SET ip_address ='" + t + "'" + "WHERE Emp_iD ='" + str(e) + "'"
     cursor.execute(sql)
     mydb.commit()
+
+def insert(p, t):
+    cursor.execute(p, t)
+    mydb.commit()

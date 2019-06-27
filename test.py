@@ -5,17 +5,20 @@ import socket
 def server_config(a=0):
     ip = socket.gethostbyname(socket.gethostname())
     host = str(ip)    # Server configurations
-    port = 3000
+    chat_port = 3000
     video_port = 4000
-    TCP_Port=9001
+    audio_port = 5000
+    TCP_Port = 9001
     if a == 1:
-     return host
+        return host
     elif a == 2:
-        return host, port, video_port
+        return video_port
     elif a == 3:
-        return host, TCP_Port
-    else:
-     return host, port
+        return audio_port
+    elif a == 4:
+        return chat_port
+    elif a == 5:
+        return TCP_Port
 
 
 def split(a, b=1):
