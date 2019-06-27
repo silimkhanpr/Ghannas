@@ -4,18 +4,17 @@ from DatabaseQuery import *
 from socket import AF_INET, SOCK_STREAM, socket
 from test import server_config, split
 
-#HOST = input("Enter Host IP\n")
+# HOST = input("Enter Host IP\n")
 HOST = server_config(1)
-PORT = 3000 
+PORT = server_config(4)
 uname = ""
 addresses = {}
 clients = {}
 eid = {}
 
-
-#HOSTA = input("Enter Host IP\n")
+# HOSTA = input("Enter Host IP\n")
 HOSTA = server_config(1)
-PORTA = 4000
+PORTA = server_config(3)
 BufferSize1 = 4096
 addressesa = {}
 
@@ -24,10 +23,10 @@ def AConnections():
     while True:
         try:
             client, addr = serverAudio.accept()
-            
+
             print("{} is connected(audio connection)!!".format(addr))
             addressesa[client] = addr
-            Thread(target=ClientConnectionSound, args=(client, )).start()
+            Thread(target=ClientConnectionSound, args=(client,)).start()
         except:
             continue
 
@@ -40,18 +39,18 @@ def ClientConnectionSound(client):
         except:
             continue
 
+
 def broadcastSound(clientSocket, data_to_be_sent):
     for client in addressesa:
         if client != clientSocket:
             client.sendall(data_to_be_sent)
-    
 
 
 def Connections():
     while True:
         client, addr = server.accept()
         addr1 = format(addr)
-        addr2 = split(addr,2)
+        addr2 = split(addr, 2)
         print(addr2)
         print("text connection")
         global uname
@@ -60,7 +59,7 @@ def Connections():
         client.send(("Welcome to Chat Room {}.".format(uname)).encode("utf-8"))
         addresses[client] = addr1
         clients[client] = uname
-        Thread(target=ClientConnection, args=(client, )).start()
+        Thread(target=ClientConnection, args=(client,)).start()
 
 
 def ClientConnection(client):
@@ -70,8 +69,8 @@ def ClientConnection(client):
     while True:
         msg = client.recv(BufferSize).decode("utf-8")
         if msg != "quit":
-            Broadcast(addr2, msg.encode("utf-8"), name+":")
-            print(name+":"+msg)
+            Broadcast(addr2, msg.encode("utf-8"), name + ":")
+            print(name + ":" + msg)
         else:
             client.send(("Will see you soon..").encode("utf-8"))
             del clients[client]
@@ -79,11 +78,10 @@ def ClientConnection(client):
 
 
 def Broadcast(add, msg, name=""):
-
     for sockets in clients:
         sockets.send(name.encode("utf-8") + msg)
     x = datetime.datetime.now()
-    ed=eid[add]
+    ed = eid[add]
     val = (msg, ed, "3", "group", x)
     db_insert(val, 1)
 
@@ -93,7 +91,6 @@ try:
     server.bind((HOST, PORT))
 except OSError:
     print("Server Busy")
-
 
 serverAudio = socket(family=AF_INET, type=SOCK_STREAM)
 try:
@@ -107,7 +104,6 @@ print("Waiting for connection audio..")
 AcceptThreadAudio = Thread(target=AConnections)
 AcceptThreadAudio.start()
 
-
 server.listen(5)
 print("Waiting for Connections... ")
 AcceptThread = Thread(target=Connections)
@@ -115,63 +111,3 @@ AcceptThread.start()
 AcceptThread.join()
 server.close()
 
-
-
-
-
-
-
-
-
-
-
-'''Audio server code
-from socket import socket, AF_INET, SOCK_STREAM
-from threading import Thread
-from test import server_config
-
-HOSTA, PORTA = server_config()
-BufferSize1 = 4096
-addressesa = {}
-
-def AConnections():
-    while True:
-        try:
-            client, addr = server.accept()
-            print("{} is connected!!".format(addr))
-            addressesa[client] = addr
-            Thread(target=ClientConnectionSound, args=(client, )).start()
-        except:
-            continue
-
-def ClientConnectionSound(client):
-    while True:
-        try:
-            data = client.recv(BufferSize1)
-            broadcastSound(client, data)
-        except:
-            continue
-
-def broadcastSound(clientSocket, data_to_be_sent):
-    for client in addressesa:
-        if client != clientSocket:
-            client.sendall(data_to_be_sent)
-
-
-server = socket(family=AF_INET, type=SOCK_STREAM)
-try:
-    server.bind((HOSTA, PORTA))
-except OSError:
-    print("Server Busy")
-
-
-
-
-
-
-server.listen(2)
-print("Waiting for connection..")
-AcceptThread = Thread(target=AConnections)
-AcceptThread.start()
-AcceptThread.join()
-'''
