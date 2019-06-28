@@ -51,16 +51,20 @@ def ClientConnection(client):
 
 def Broadcast(add, msg, name=""):
     for sockets in clients:
-        #print(sockets)
-        #print(addr2[sockets])
         receiver_ip = emp_ip(rec_Id, 1)
         print(receiver_ip)
-        sockets.send(name.encode("utf-8") + msg)
-    x = datetime.datetime.now()
-    ed = eid[add]
+        soc = str(sockets).split("=('", 1)
+        s = soc[1].split("',", 1)
+        print(s[0])
+        ed = eid[add]
+        x = datetime.datetime.now()
+        if receiver_ip == s[0]:
+            val = (msg, ed, int(rec_Id), "private", x)
+            db_insert(val, 1)
+    sockets.send(name.encode("utf-8") + msg)
     print(rec_Id)
-    val = (msg, ed, int(rec_Id), "private", x)
-    db_insert(val, 1)
+    # val = (msg, ed, int(rec_Id), "private", x)
+    # db_insert(val, 1)
 
 
 server = socket(family=AF_INET, type=SOCK_STREAM)
