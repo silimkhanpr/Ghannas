@@ -55,12 +55,18 @@ def Broadcast(add, msg, name=""):
         print(receiver_ip)
         soc = str(sockets).split("=('", 1)
         s = soc[1].split("',", 1)
-        print(s[0])
+        print("broadcast receiver"+s[1])
         ed = eid[add]
         x = datetime.datetime.now()
-        if receiver_ip == s[0]:
-            val = (msg, ed, int(rec_Id), "private", x)
+        if receiver_ip == receiver_ip:
+            val = (msg, ed, int(rec_Id), None, "private", x)
+            print(val)
             db_insert(val, 1)
+        else:
+            val = (msg, ed, None, "3", "group", x)
+            print(val)
+            db_insert(val, 1)
+
     sockets.send(name.encode("utf-8") + msg)
     print(rec_Id)
     # val = (msg, ed, int(rec_Id), "private", x)

@@ -40,7 +40,7 @@ def emp_ip(a, i=0):
 # function to insert values in db
 def db_insert(val, a):
      if a == 1:  # query to insert a group message into db
-        sql = "insert into message (message_body,sender_id,receiver_id,message_type,time) values (%s,%s,%s,%s,%s)"
+        sql = "insert into message (message_body,sender_id,receiver_id,Receiver_group_id,message_type,time) values (%s,%s,%s,%s,%s,%s)"
         cursor.execute(sql, val)
         mydb.commit()
      elif a == 2:  # query to add new employee into db
