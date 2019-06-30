@@ -8,8 +8,7 @@ from DatabaseQuery import db_point, message_populate
 import tkinter
 import os
 
-eid = "3"
-#eid = sys.argv[1]
+eid = sys.argv[1]
 receiver_Id = ""
 eid = str(eid)
 window = Tk()

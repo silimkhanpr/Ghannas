@@ -33,7 +33,7 @@ def clicked(event=None):
     password = entry2.get()
     pass1 = encrypt_code(password)
     uname = str(username)
-    ip=server_config(1)
+    ip=server_config(6)
     sql = "select * from users where username='"+uname+"'"
     result = db_point(sql)
     if result:

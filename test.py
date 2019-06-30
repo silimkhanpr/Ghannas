@@ -3,8 +3,9 @@ import socket
 
 
 def server_config(a=0):
-    ip = socket.gethostbyname(socket.gethostname())
-    host = str(ip)    # Server configurations
+    ip1 = socket.gethostbyname(socket.gethostname())
+    ip2 = ip1
+    host = str(ip2)    # Server configurations
     chat_port = 3000
     video_port = 4000
     audio_port = 5000
@@ -19,6 +20,8 @@ def server_config(a=0):
         return chat_port
     elif a == 5:
         return TCP_Port
+    elif a == 6:
+        return ip2
 
 
 def split(a, b=1):
