@@ -21,7 +21,7 @@ def server_config(a=0):
     elif a == 5:
         return TCP_Port
     elif a == 6:
-        return ip2
+        return ip1
 
 
 def split(a, b=1):

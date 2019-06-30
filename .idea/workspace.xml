@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4088ea8d-bb8f-41af-a2e4-0463b264286a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseQuery.py" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseQuery.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverComb.py" beforeDir="false" afterPath="$PROJECT_DIR$/serverComb.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverCombined.py" beforeDir="false" afterPath="$PROJECT_DIR$/serverCombined.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_chat_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_chat_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,8 +31,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/login_page_ui.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="288">
+              <caret line="42" column="21" lean-forward="true" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -43,11 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/serverCombined.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="56" column="20" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="20" />
+            <state relative-caret-position="228">
+              <caret line="93" column="60" lean-forward="true" selection-start-line="93" selection-start-column="60" selection-end-line="93" selection-end-column="60" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -58,8 +55,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/user_chat_page.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+            <state relative-caret-position="240">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -79,11 +76,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+            <state relative-caret-position="168">
+              <caret line="22" column="16" lean-forward="true" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -105,7 +102,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/admin_chat_page.py" />
         <option value="$PROJECT_DIR$/audio_call_page.py" />
         <option value="$PROJECT_DIR$/serverAudio.py" />
@@ -118,8 +114,10 @@
         <option value="$PROJECT_DIR$/add_notices.py" />
         <option value="$PROJECT_DIR$/DatabaseQuery.py" />
         <option value="$PROJECT_DIR$/serverComb.py" />
-        <option value="$PROJECT_DIR$/user_chat_page.py" />
         <option value="$PROJECT_DIR$/serverCombined.py" />
+        <option value="$PROJECT_DIR$/login_page_ui.py" />
+        <option value="$PROJECT_DIR$/user_chat_page.py" />
+        <option value="$PROJECT_DIR$/test.py" />
       </list>
     </option>
   </component>
@@ -163,7 +161,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.user_chat_page">
+  <component name="RunManager" selected="Python.login_page_ui">
     <configuration name="admin_chat_page" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Ghannas" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -271,10 +269,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.user_chat_page" />
-        <item itemvalue="Python.serverComb" />
         <item itemvalue="Python.login_page_ui" />
         <item itemvalue="Python.serverCombined" />
+        <item itemvalue="Python.user_chat_page" />
+        <item itemvalue="Python.serverComb" />
         <item itemvalue="Python.admin_chat_page" />
       </list>
     </recent_temporary>
@@ -332,7 +330,21 @@
       <option name="project" value="LOCAL" />
       <updated>1561883901140</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="made changes to code to make username capital">
+      <created>1561886286535</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1561886286535</updated>
+    </task>
+    <task id="LOCAL-00008" summary="made changes to test to get current ip">
+      <created>1561887551862</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1561887551862</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView">
@@ -374,7 +386,9 @@
     <MESSAGE value="updated the host and port" />
     <MESSAGE value="updated code to add message in personal chat" />
     <MESSAGE value="updated broadcast function to store chats as private or group" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated broadcast function to store chats as private or group" />
+    <MESSAGE value="made changes to code to make username capital" />
+    <MESSAGE value="made changes to test to get current ip" />
+    <option name="LAST_COMMIT_MESSAGE" value="made changes to test to get current ip" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/clientUI.py">
@@ -496,42 +510,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DatabaseQuery.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login_page_ui.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/user_chat_page.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -548,10 +532,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/serverCombined.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="56" column="20" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="20" />
+        <state relative-caret-position="228">
+          <caret line="93" column="60" lean-forward="true" selection-start-line="93" selection-start-column="60" selection-end-line="93" selection-end-column="60" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user_chat_page.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login_page_ui.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="42" column="21" lean-forward="true" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="22" column="16" lean-forward="true" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
