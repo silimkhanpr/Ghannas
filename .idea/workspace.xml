@@ -5,6 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DatabaseQuery.py" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseQuery.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/serverComb.py" beforeDir="false" afterPath="$PROJECT_DIR$/serverComb.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverCombined.py" beforeDir="false" afterPath="$PROJECT_DIR$/serverCombined.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_chat_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_chat_page.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/serverComb.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="61" column="45" selection-start-line="61" selection-start-column="45" selection-end-line="61" selection-end-column="45" />
+            <state relative-caret-position="228">
+              <caret line="25" column="8" lean-forward="true" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="20" />
               <folding>
                 <element signature="e#1#29#0" expanded="true" />
               </folding>
@@ -30,10 +32,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/user_chat_page.py">
+        <entry file="file://$PROJECT_DIR$/login_page_ui.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="588">
-              <caret line="177" column="13" lean-forward="true" selection-start-line="177" selection-start-column="13" selection-end-line="177" selection-end-column="13" />
+            <state relative-caret-position="240">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/serverCombined.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="56" column="20" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="20" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -42,12 +56,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test.py">
+        <entry file="file://$PROJECT_DIR$/user_chat_page.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+            <state relative-caret-position="288">
+              <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
               <folding>
-                <element signature="e#0#14#0" expanded="true" />
+                <element signature="e#0#28#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -56,10 +70,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DatabaseQuery.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="42" column="15" lean-forward="true" selection-start-line="42" selection-start-column="15" selection-end-line="42" selection-end-column="134" />
+            <state relative-caret-position="216">
+              <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="348">
+              <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -70,6 +96,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>logo</find>
+      <find>print</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -89,10 +116,10 @@
         <option value="$PROJECT_DIR$/clientMedia.py" />
         <option value="$PROJECT_DIR$/serverMedia.py" />
         <option value="$PROJECT_DIR$/add_notices.py" />
-        <option value="$PROJECT_DIR$/serverCombined.py" />
-        <option value="$PROJECT_DIR$/user_chat_page.py" />
         <option value="$PROJECT_DIR$/DatabaseQuery.py" />
         <option value="$PROJECT_DIR$/serverComb.py" />
+        <option value="$PROJECT_DIR$/user_chat_page.py" />
+        <option value="$PROJECT_DIR$/serverCombined.py" />
       </list>
     </option>
   </component>
@@ -158,27 +185,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="clientAudio" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Ghannas" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/clientAudio.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="login_page_ui" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Ghannas" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -221,6 +227,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="serverCombined" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Ghannas" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/serverCombined.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="user_chat_page" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Ghannas" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -246,9 +273,9 @@
       <list>
         <item itemvalue="Python.user_chat_page" />
         <item itemvalue="Python.serverComb" />
-        <item itemvalue="Python.admin_chat_page" />
         <item itemvalue="Python.login_page_ui" />
-        <item itemvalue="Python.clientAudio" />
+        <item itemvalue="Python.serverCombined" />
+        <item itemvalue="Python.admin_chat_page" />
       </list>
     </recent_temporary>
   </component>
@@ -298,7 +325,14 @@
       <option name="project" value="LOCAL" />
       <updated>1561736405791</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="updated broadcast function to store chats as private or group">
+      <created>1561883901140</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1561883901140</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TodoView">
@@ -339,7 +373,8 @@
     <MESSAGE value="Updated files to take host and port from test.py" />
     <MESSAGE value="updated the host and port" />
     <MESSAGE value="updated code to add message in personal chat" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated code to add message in personal chat" />
+    <MESSAGE value="updated broadcast function to store chats as private or group" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated broadcast function to store chats as private or group" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/clientUI.py">
@@ -382,13 +417,6 @@
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login_page_ui.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1396">
-          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -468,19 +496,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/serverCombined.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="24" lean-forward="true" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
+        <state relative-caret-position="348">
           <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
@@ -488,32 +506,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/user_chat_page.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="177" column="13" lean-forward="true" selection-start-line="177" selection-start-column="13" selection-end-line="177" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DatabaseQuery.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="42" column="15" lean-forward="true" selection-start-line="42" selection-start-column="15" selection-end-line="42" selection-end-column="134" />
+        <state relative-caret-position="216">
+          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/login_page_ui.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user_chat_page.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/serverComb.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="61" column="45" selection-start-line="61" selection-start-column="45" selection-end-line="61" selection-end-column="45" />
+        <state relative-caret-position="228">
+          <caret line="25" column="8" lean-forward="true" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="20" />
           <folding>
             <element signature="e#1#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serverCombined.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="56" column="20" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>

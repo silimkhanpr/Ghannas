@@ -19,7 +19,7 @@ def db_point(a):
 def emp_ip(a, i=0):
     if i == 1:
         ip = 0
-        query="select ip_address from employee where emp_id=" + a
+        query = "select ip_address from employee where emp_id=" + a
         result = db_point(query)
         for x in result:
             ip = x[0]

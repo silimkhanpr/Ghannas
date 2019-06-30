@@ -22,6 +22,7 @@ def Connections():
         print(addr1)
         global uname
         uname, eid[addr1] = emp_ip(addr1)
+        uname = uname.capitalize()
         print(uname)
         addresses[client] = addr1
         clients[client] = uname

@@ -11,7 +11,7 @@ uname = ""
 addresses = {}
 clients = {}
 eid = {}
-
+rec_Id = ""
 HOSTA = server_config(1)
 PORTA = server_config(3)
 BufferSize1 = 4096
@@ -49,27 +49,32 @@ def Connections():
     while True:
         client, addr = server.accept()
         addr1 = format(addr)
-        addr2 = split(addr,2)
-        print(addr2)
-        print("text connection")
+        addr1 = split(addr1, 2)
+        print(addr1)
         global uname
-        uname, eid[addr2] = emp_ip(addr2)
+        uname, eid[addr1] = emp_ip(addr1)
+        uname = uname.capitalize()
         print(uname)
-        client.send(("Welcome to Chat Room {}.".format(uname)).encode("utf-8"))
         addresses[client] = addr1
         clients[client] = uname
         Thread(target=ClientConnection, args=(client, )).start()
-
 
 def ClientConnection(client):
     name = clients[client]
     a = addresses[client]
     addr2 = split(a, 2)
+    global rec_Id
+    rec_Id = client.recv(BufferSize).decode("utf-8")
+    #print("receiver id is " + rec_Id)
+
     while True:
-        msg = client.recv(BufferSize).decode("utf-8")
-        if msg != "quit":
-            Broadcast(addr2, msg.encode("utf-8"), name+":")
-            print(name+":"+msg)
+        ms = client.recv(BufferSize).decode("utf-8")
+        msg = ms.split(", ", 1)
+
+        rec_Id = msg[0]
+        if msg[1] != "quit":
+            Broadcast(addr2, msg[1].encode("utf-8"), name+":")
+            print(name+":"+msg[1])
         else:
             client.send(("Will see you soon..").encode("utf-8"))
             del clients[client]
@@ -77,13 +82,27 @@ def ClientConnection(client):
 
 
 def Broadcast(add, msg, name=""):
-
     for sockets in clients:
-        sockets.send(name.encode("utf-8") + msg)
-    x = datetime.datetime.now()
-    ed=eid[add]
-    val = (msg, ed, "3", "group", x)
-    db_insert(val, 1)
+        receiver_ip = emp_ip(rec_Id, 1)
+        print(receiver_ip)
+        soc = str(sockets).split("=('", 1)
+        s = soc[1].split("',", 1)
+        print("broadcast receiver"+s[1])
+        ed = eid[add]
+        x = datetime.datetime.now()
+        if receiver_ip == receiver_ip:
+            val = (msg, ed, int(rec_Id), None, "private", x)
+            print(val)
+            db_insert(val, 1)
+        else:
+            val = (msg, ed, None, "3", "group", x)
+            print(val)
+            db_insert(val, 1)
+
+    sockets.send(name.encode("utf-8") + msg)
+    print(rec_Id)
+    # val = (msg, ed, int(rec_Id), "private", x)
+    # db_insert(val, 1)
 
 
 server = socket(family=AF_INET, type=SOCK_STREAM)
