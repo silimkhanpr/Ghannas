@@ -3,15 +3,12 @@ from tkinter import *
 from tkinter import ttk
 from socket import AF_INET, socket, SOCK_STREAM
 from threading import Thread
-from tkinter.filedialog import askopenfilename
-
 from test import split, server_config
-from DatabaseQuery import db_point, message_populate, update_status
+from DatabaseQuery import db_point, message_populate
 import tkinter
 import os
 
-eid = "3"  # sys.argv[1]
-update_status(eid, "ONLINE")
+eid = "4" #sys.argv[1]
 receiver_Id = ""
 eid = str(eid)
 window = Tk()
@@ -62,15 +59,6 @@ if result:
 
 uname = split(uname1)
 uname = uname.capitalize()
-
-
-def groupchat():
-    os.system('python clientUI.py')
-
-
-TButton2 = ttk.Button(window, text="Group chat", command=groupchat)
-TButton2.place(relx=0.0, rely=0.0, height=25, width=213)
-
 
 def notices():
     os.system('python notices_ui.py')
@@ -126,12 +114,8 @@ Label1.config(font=("Times New Roman", 20))
 
 # code when a contact is clicked
 def chat_click(receiverid, fullname):
-
-
     global receiver_Id
     receiver_Id = receiverid
-
-
 
     print("sender id is " + eid)
     print("receiver id is " + str(receiverid))
@@ -185,10 +169,33 @@ if records:
         n = n + 0.052
 
 
+def groupchat():
+    a, i = message_populate(eid, "None")  # code to populate previous messages
+    j = 0
+    while j < i:
+        msg_list.insert(tkinter.END, a[j])
+        j += 1
+
+    msg_list.place(relx=0.274, rely=0.210)
+    ChatEntry.place(relx=0.275, rely=0.925, height=37, width=482)
+    ChatEntry.focus()
+    SendButton = ttk.Button(window, text="Send", command=send)
+    SendButton.place(relx=0.880, rely=0.924, height=39, width=85)
+    ChatEntry.bind("<Return>", send)
+
+    Label1.destroy()
+    LabelUser = Label(window, text="Group Chat", fg="red", bg="yellow")
+    LabelUser.place(relx=0.282, rely=0.073, height=60, width=220)
+    LabelUser.config(font=("Times New Roman", 20))
+
+    
+TButton2 = ttk.Button(window, text="Group chat", command=groupchat)
+TButton2.place(relx=0.0, rely=n+0.247, height=25, width=213)
+
+
 def logout():
-    socket.close(client_socket)
-    update_status(eid, "OFFLINE")
     window.destroy()
+    socket.close(client_socket)
 
 
 def changepw():
