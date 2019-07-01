@@ -3,15 +3,12 @@ from tkinter import *
 from tkinter import ttk
 from socket import AF_INET, socket, SOCK_STREAM
 from threading import Thread
-from tkinter.filedialog import askopenfilename
-
 from test import split, server_config
 from DatabaseQuery import db_point, message_populate
 import tkinter
 import os
 
-eid = "3"
-#eid = sys.argv[1]
+eid = "4" #sys.argv[1]
 receiver_Id = ""
 eid = str(eid)
 window = Tk()
@@ -65,8 +62,7 @@ uname = uname.capitalize()
 
 
 def groupchat():
-    flag = 1
-    #os.system('python clientcomb.py')
+    os.system('python clientUI.py')
 
 
 TButton2 = ttk.Button(window, text="Group chat", command=groupchat)
@@ -162,10 +158,11 @@ def chat_click(receiverid, fullname):
 
     def file():
         filename = askopenfilename()
+        print(filename)
 
     def video():
         os.system("python clientMedia.py")
-
+    
     videocall = Button(window, text="Video Call", command=video)
     videocall.place(relx=0.797, rely=0.1, height=35, width=96)
     audiocall = Button(window, text="Audio Call", command=audio)

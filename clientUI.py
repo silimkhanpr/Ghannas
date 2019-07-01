@@ -4,11 +4,11 @@ from threading import Thread
 import tkinter
 import mysql.connector
 import os
-#os.system('python serverComb.py')
+
 mydb = mysql.connector.connect(
-host="localhost",
-user="root",
-passwd="",
+host="172.26.10.92",
+user="root@laptop",
+passwd="root",
 database="be_project"
 )
 def receive():
@@ -17,25 +17,25 @@ def receive():
         try:
             msg = client_socket.recv(BUFSIZ).decode("utf8")
             msg_list.insert(tkinter.END, msg)
+            print(msg)
             msg_list.see(tkinter.END)
         except OSError:
             break
 
 
 def send(event=None):  # event is passed by binders.
-    msg = my_msg.get()
+    msg = entry_field.get()
+    #temp = "3"
+    #msg = temp + ", " + ms
+    entry_field.delete(0, 'end')
     my_msg.set("")  # Clears input field.
     if msg == "quit":
         client_socket.send(msg.encode("utf8"))
         client_socket.close()
-        #top.quit()
+        # top.quit()
     else:
         client_socket.send(msg.encode("utf8"))
-
-#def on_closing(event=None):
- #   """This function is to be called when the window is closed."""
-  #  my_msg.set("{quit}")
-   # send()
+    print(msg)
 
 top = tkinter.Tk()
 top.title("Chat On!")
@@ -57,7 +57,7 @@ entry_field.pack()
 send_button = tkinter.Button(top, text="Send", command=send)
 send_button.pack()
 cursor=mydb.cursor()
-query= "SELECT sender_name,message_body FROM personal_chat WHERE (`sender_id`=2 and `receiver_id`=1) OR (`sender_id`=1 and `receiver_id`=2) ORDER BY `time` ASC"
+query= "SELECT sender_name,message_body FROM group_chat WHERE group_id = 3"
 sql=query
 cursor.execute(sql)
 result=cursor.fetchall()
@@ -69,7 +69,7 @@ for x in result:
 
 #Socket part
 #HOST = input('Enter host: ') # Enter host of the server without inverted commas
-HOST='192.168.1.33'
+HOST= "172.26.10.92"
 PORT = 3000
 BUFSIZ = 1024
 ADDR = (HOST, PORT)
