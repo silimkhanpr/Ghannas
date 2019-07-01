@@ -91,21 +91,21 @@ def Broadcast(add, msg, name=""):
         ed = eid[add]
         x = datetime.datetime.now()
 
-        if rec_Id:
+        if receiver_ip == s[0]:
             val = (msg, ed, int(rec_Id), None, "private", x)
             print(val)
             # db_insert(val, 1)
-            # sockets.send(name.encode("utf-8") + msg)
+            sockets.send(name.encode("utf-8") + msg)
 
         else:
             val = (msg, ed, None, "3", "group", x)
             print(val)
-            db_insert(val, 1)
-    print(clients)
-    sockets.send(name.encode("utf-8") + msg)
-    print(rec_Id)
-    # val = (msg, ed, int(rec_Id), "private", x)
-    # db_insert(val, 1)
+            # db_insert(val, 1)
+            print(clients)
+            sockets.send(name.encode("utf-8") + msg)
+            # print(rec_Id)
+            # val = (msg, ed, int(rec_Id), "private", x)
+            # db_insert(val, 1)
 
 
 server = socket(family=AF_INET, type=SOCK_STREAM)
