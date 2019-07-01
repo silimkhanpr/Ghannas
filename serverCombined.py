@@ -5,8 +5,8 @@ from socket import AF_INET, SOCK_STREAM, socket
 from test import server_config, split
 
 
-HOST = server_config(1)
-PORT = server_config(4)
+HOST = '172.26.10.89' #server_config(1)
+PORT = 3000 #server_config(4)
 uname = ""
 addresses = {}
 clients = {}
@@ -14,7 +14,7 @@ eid = {}
 rec_Id = ""
 HOSTA = server_config(1)
 PORTA = server_config(3)
-BufferSize1 = 4096
+BufferSize = 4096
 addressesa = {}
 
 
@@ -64,26 +64,28 @@ def ClientConnection(client):
     a = addresses[client]
     addr2 = split(a, 2)
     global rec_Id
-   # rec_Id = client.recv(BufferSize).decode("utf-8")
+    rec_Id = client.recv(BufferSize).decode("utf-8")
     #print("receiver id is " + rec_Id)
 
     while True:
         ms = client.recv(BufferSize).decode("utf-8")
         msg = ms.split(", ", 1)
+
         rec_Id = msg[0]
-        if msg[0] != "quit":
-            Broadcast(addr2, msg[0].encode("utf-8"), name+":")
-            print(name+":"+msg[0])
+        print("REc_id"+rec_Id)
+        if msg[1] != "quit":
+            Broadcast(addr2, msg[1].encode("utf-8"), name+":",client)
+            print(name+": "+msg[1])
         else:
             client.send(("Will see you soon..").encode("utf-8"))
             del clients[client]
             break
 
 
-def Broadcast(add, msg, name=""):
+def Broadcast(add, msg, name="",client=""):
     for sockets in clients:
-        # receiver_ip = emp_ip(rec_Id, 1)
-        # print("receiver ip: "+receiver_ip)
+        receiver_ip = emp_ip(rec_Id, 1)
+        print("receiver ip: "+receiver_ip)
         soc = str(sockets).split("raddr=('", 1)
         s = soc[1].split("',", 1)
         print(s[0])
@@ -91,21 +93,15 @@ def Broadcast(add, msg, name=""):
         x = datetime.datetime.now()
 
         if receiver_ip == s[0]:
-            val = (msg, ed, int(rec_Id), None, "private", x)
-            print(val)
-            # db_insert(val, 1)
+           # val = (msg.decode("utf-8"), ed, int(rec_Id), None, "private", x)
+            #print(val)
+            #db_insert(val, 1)
             sockets.send(name.encode("utf-8") + msg)
+            client.send(name.encode("utf-8") + msg)
 
-        else:
-            val = (msg, ed, None, "3", "group", x)
-            print(val)
-            # db_insert(val, 1)
-            print(clients)
-            sockets.send(name.encode("utf-8") + msg)
-            # print(rec_Id)
-            # val = (msg, ed, int(rec_Id), "private", x)
-            # db_insert(val, 1)
-
+    val = (msg.decode("utf-8"), ed, int(rec_Id), None, "private", x)
+    print(val)
+    db_insert(val, 1)
 
 server = socket(family=AF_INET, type=SOCK_STREAM)
 try:
@@ -113,7 +109,7 @@ try:
 except OSError:
     print("Server Busy")
 
-
+'''
 serverAudio = socket(family=AF_INET, type=SOCK_STREAM)
 try:
     serverAudio.bind((HOSTA, PORTA))
@@ -126,7 +122,7 @@ print("Waiting for connection audio..")
 AcceptThreadAudio = Thread(target=AConnections)
 AcceptThreadAudio.start()
 
-
+'''
 server.listen(5)
 print("Waiting for Connections... ")
 AcceptThread = Thread(target=Connections)
