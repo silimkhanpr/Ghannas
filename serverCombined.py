@@ -5,8 +5,8 @@ from socket import AF_INET, SOCK_STREAM, socket
 from test import server_config, split
 
 
-HOST = '172.26.10.89' #server_config(1)
-PORT = 3000 #server_config(4)
+HOST = server_config(1)
+PORT = server_config(4)
 uname = ""
 addresses = {}
 clients = {}
@@ -85,6 +85,8 @@ def ClientConnection(client):
 def Broadcast(add, msg, name="",client=""):
     for sockets in clients:
         receiver_ip = emp_ip(rec_Id, 1)
+        status = emp_ip(rec_Id, 2)
+        print(status)
         print("receiver ip: "+receiver_ip)
         soc = str(sockets).split("raddr=('", 1)
         s = soc[1].split("',", 1)

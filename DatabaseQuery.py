@@ -24,6 +24,13 @@ def emp_ip(a, i=0):
         for x in result:
             ip = x[0]
         return ip
+    elif i == 2:
+        query = "select status from employee where emp_id=" + a
+        result = db_point(query)
+        status = ""
+        for x in result:
+            status = x[0]
+        return status
     else:
         e = 0
         u = ""
@@ -108,6 +115,7 @@ def update_ip(e, t):
 def insert(p, t):
     cursor.execute(p, t)
     mydb.commit()
+
 
 def update_status(eid, status):
     sql = "UPDATE employee SET status ='"+status+"'" + "WHERE Emp_iD ='" + str(eid) + "'"
