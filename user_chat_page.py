@@ -4,11 +4,12 @@ from tkinter import ttk
 from socket import AF_INET, socket, SOCK_STREAM
 from threading import Thread
 from test import split, server_config
-from DatabaseQuery import db_point, message_populate
+from DatabaseQuery import db_point, message_populate,update_status
 import tkinter
 import os
 
-eid = "4" #sys.argv[1]
+eid = "3" #sys.argv[1]
+update_status(eid, "ONLINE")
 receiver_Id = ""
 eid = str(eid)
 window = Tk()
@@ -183,8 +184,9 @@ if records:
 
 
 def logout():
-    window.destroy()
     socket.close(client_socket)
+    update_status(eid, "OFFLINE")
+    window.destroy()
 
 
 def changepw():

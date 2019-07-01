@@ -2,7 +2,7 @@ import mysql.connector
 from test import split, server_config, encrypt_code
 # Db object
 mydb = mysql.connector.connect(
-        host=server_config(1),  # central db
+        host=server_config(6),  # central db
         user="root@laptop",
         passwd="root",
         database="be_project"
@@ -104,6 +104,12 @@ def update_ip(e, t):
     cursor.execute(sql)
     mydb.commit()
 
+
 def insert(p, t):
     cursor.execute(p, t)
+    mydb.commit()
+
+def update_status(eid, status):
+    sql = "UPDATE employee SET status ='"+status+"'" + "WHERE Emp_iD ='" + str(eid) + "'"
+    cursor.execute(sql)
     mydb.commit()

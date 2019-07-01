@@ -64,17 +64,16 @@ def ClientConnection(client):
     a = addresses[client]
     addr2 = split(a, 2)
     global rec_Id
-    rec_Id = client.recv(BufferSize).decode("utf-8")
+   # rec_Id = client.recv(BufferSize).decode("utf-8")
     #print("receiver id is " + rec_Id)
 
     while True:
         ms = client.recv(BufferSize).decode("utf-8")
         msg = ms.split(", ", 1)
-
         rec_Id = msg[0]
-        if msg[1] != "quit":
-            Broadcast(addr2, msg[1].encode("utf-8"), name+":")
-            print(name+":"+msg[1])
+        if msg[0] != "quit":
+            Broadcast(addr2, msg[0].encode("utf-8"), name+":")
+            print(name+":"+msg[0])
         else:
             client.send(("Will see you soon..").encode("utf-8"))
             del clients[client]
@@ -83,8 +82,8 @@ def ClientConnection(client):
 
 def Broadcast(add, msg, name=""):
     for sockets in clients:
-        receiver_ip = emp_ip(rec_Id, 1)
-        print("receiver ip: "+receiver_ip)
+        # receiver_ip = emp_ip(rec_Id, 1)
+        # print("receiver ip: "+receiver_ip)
         soc = str(sockets).split("raddr=('", 1)
         s = soc[1].split("',", 1)
         print(s[0])
