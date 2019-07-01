@@ -23,10 +23,8 @@ def receive():
             break
 
 
-def send(event=None):  # event is passed by binders.
+def send():  # event is passed by binders.
     msg = entry_field.get()
-    #temp = "3"
-    #msg = temp + ", " + ms
     entry_field.delete(0, 'end')
     my_msg.set("")  # Clears input field.
     if msg == "quit":
@@ -52,7 +50,6 @@ msg_list.pack()
 messages_frame.pack()
 
 entry_field = tkinter.Entry(top, textvariable=my_msg)
-entry_field.bind("<Return>", send)
 entry_field.pack()
 send_button = tkinter.Button(top, text="Send", command=send)
 send_button.pack()
