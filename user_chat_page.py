@@ -3,12 +3,15 @@ from tkinter import *
 from tkinter import ttk
 from socket import AF_INET, socket, SOCK_STREAM
 from threading import Thread
+from tkinter.filedialog import askopenfilename
+
 from test import split, server_config
 from DatabaseQuery import db_point, message_populate
 import tkinter
 import os
 
-eid = sys.argv[1]
+eid = "3"
+#eid = sys.argv[1]
 receiver_Id = ""
 eid = str(eid)
 window = Tk()
@@ -154,11 +157,20 @@ def chat_click(receiverid, fullname):
     LabelUser.place(relx=0.282, rely=0.073, height=60, width=220)
     LabelUser.config(font=("Times New Roman", 20))
 
-    videocall = Button(window, text="Video Call")
+    def audio():
+        os.system("python audio_call_page.py"+" "+str(receiverid))
+
+    def file():
+        filename = askopenfilename()
+
+    def video():
+        os.system("python clientMedia.py")
+
+    videocall = Button(window, text="Video Call", command=video)
     videocall.place(relx=0.797, rely=0.1, height=35, width=96)
-    audiocall = Button(window, text="Audio Call")
+    audiocall = Button(window, text="Audio Call", command=audio)
     audiocall.place(relx=0.687, rely=0.1, height=35, width=96)
-    filetransfer = Button(window, text="File Transfer")
+    filetransfer = Button(window, text="File Transfer", command=file)
     filetransfer.place(relx=0.577, rely=0.1, height=35, width=96)
 
 # list of contacts dynamically retrieved from database

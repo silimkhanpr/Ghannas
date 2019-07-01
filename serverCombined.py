@@ -84,21 +84,24 @@ def ClientConnection(client):
 def Broadcast(add, msg, name=""):
     for sockets in clients:
         receiver_ip = emp_ip(rec_Id, 1)
-        print(receiver_ip)
-        soc = str(sockets).split("=('", 1)
+        print("receiver ip: "+receiver_ip)
+        soc = str(sockets).split("raddr=('", 1)
         s = soc[1].split("',", 1)
-        print("broadcast receiver"+s[1])
+        print(s[0])
         ed = eid[add]
         x = datetime.datetime.now()
-        if receiver_ip == receiver_ip:
+
+        if rec_Id:
             val = (msg, ed, int(rec_Id), None, "private", x)
             print(val)
-            db_insert(val, 1)
+            # db_insert(val, 1)
+            # sockets.send(name.encode("utf-8") + msg)
+
         else:
             val = (msg, ed, None, "3", "group", x)
             print(val)
             db_insert(val, 1)
-
+    print(clients)
     sockets.send(name.encode("utf-8") + msg)
     print(rec_Id)
     # val = (msg, ed, int(rec_Id), "private", x)
